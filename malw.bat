@@ -1,5 +1,5 @@
 @echo off
-title MALWAREBYTES CRACK
+title MALWAREBYTES
 
 :: Check if user has administrative privileges, if not, elevate
 net session >nul 2>&1
