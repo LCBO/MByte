@@ -14,10 +14,7 @@ if %errorLevel% == 0 (
 :: Stop Malwarebytes
 start "" "%ProgramFiles%\Malwarebytes\Anti-Malware\malwarebytes_assistant.exe" --stopservice
 
-:: Add a pause with a red message
-echo Waiting for Malwarebytes to exit...
-echo Press any key to continue...
-timeout /t 2 >nul
+
 
 :: Generate a new code and set it in the registry
 REM Generate a new GUID
