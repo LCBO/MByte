@@ -1,5 +1,4 @@
 @echo off
-title MALWAREBYTES
 
 :: Check if user has administrative privileges, if not, elevate
 net session >nul 2>&1
@@ -14,7 +13,8 @@ if %errorLevel% == 0 (
 :: Stop Malwarebytes
 start "" "%ProgramFiles%\Malwarebytes\Anti-Malware\malwarebytes_assistant.exe" --stopservice
 
-
+:: Wait for Malwarebytes to exit (optional)
+ping -n 1 127.0.0.1 >nul
 
 :: Generate a new code and set it in the registry
 REM Generate a new GUID
@@ -34,13 +34,5 @@ reg add "HKLM\SOFTWARE\Microsoft\Cryptography" /v MachineGuid /t REG_SZ /d "%GUI
 
 echo New MachineGuid value set to: %GUID%
 
-:: Wait for user input to exit or automatically exit after 5 seconds
-choice /C X /N /T 5 /D X > nul
-
-if errorlevel 2 (
-    echo Exiting...
-    timeout /t 2 /nobreak > nul
-    exit
-)
-
-pause
+:: Wait for a few seconds before automatically exiting
+timeout /t 2 >nul
