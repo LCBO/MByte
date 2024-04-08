@@ -1,0 +1,7 @@
+exec /var/services/homes/**********/icloudpd-venv/bin/python /var/services/homes/******/icloudpd-venv/bin/icloudpd --username ****@gmail.com --password ************ --auth-only
+
+
+ && sleep 5 && /var/services/homes/**********/icloudpd-venv/bin/python /var/services/homes/*********/icloudpd-venv/bin/icloudpd -d "/volume3/homes/**********/Photos" -u ********@gmail.com --auto-delete --no-progress-bar --threads-num 3 --log-level info
+
+
+
